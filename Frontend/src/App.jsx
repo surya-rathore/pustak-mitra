@@ -1,5 +1,8 @@
 import React from "react";
 import Home from "./home/Home";
+import About from "./components/About"
+import Addbooks from "./components/Addbooks";
+import Contact from "./components/Contect";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Courses from "./courses/Courses";
 import Signup from "./components/Signup";
@@ -19,6 +22,9 @@ function App() {
             element={authUser ? <Courses /> : <Navigate to="/signup" />}
           />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/addbooks" element={<Addbooks />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Toaster />
       </div>

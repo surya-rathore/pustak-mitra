@@ -1,5 +1,6 @@
 import User from "../model/user.model.js";
-import bcryptjs from "bcryptjs";
+import nodemailer from 'nodemailer'
+import bcrypt from "bcrypt";
 export const signup = async(req, res) => {
     try {
         const { fullname, email, password } = req.body;
@@ -7,7 +8,7 @@ export const signup = async(req, res) => {
         if (user) {
             return res.status(400).json({ message: "User already exists" });
         }
-        const hashPassword = await bcryptjs.hash(password, 10);
+        const hashPassword = await bcrypt.hash(password, 10);
         const createdUser = new User({
             fullname: fullname,
             email: email,
@@ -31,7 +32,7 @@ export const login = async(req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ email });
-        const isMatch = await bcryptjs.compare(password, user.password);
+        const isMatch = await bcrypt.compare(password, user.password);
         if (!user || !isMatch) {
             return res.status(400).json({ message: "Invalid username or password" });
         } else {
@@ -49,3 +50,36 @@ export const login = async(req, res) => {
         res.status(500).json({ message: "Internal server error" });
     }
 };
+
+export const contact = async (req, res) => {
+  const { name,email,subject,message } = req.body;
+
+
+  console.log(name,email,subject,message)
+
+  const transporter = nodemailer.createTransport({
+      service: 'gmail', 
+      auth: {
+          user: 'sahusurajbali@gmail.com',
+          pass: 'xhnm qfvd dyqh nafc'
+        },
+      tls: {
+        rejectUnauthorized: false, 
+    },
+  });
+
+  const mailOptions = {
+    from: email,
+    to: 'sahusurajbali@gmail.com',
+    subject: `New Contact: ${subject}`,
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+  };
+
+  try {
+      await transporter.sendMail(mailOptions);
+      res.status(200).json("contact");
+  } catch (error) {
+      console.error(error);
+      res.status(500).json('Error sending email');
+  }
+}

@@ -4,9 +4,13 @@ function Cards({ item }) {
   return (
     <>
       <div className="mt-4 my-3 p-3">
-        <div className="card w-92 bg-base-100 shadow-xl hover:scale-105 duration-200 dark:bg-slate-900 dark:text-white dark:border">
+        <div className="card w-92 bg-base-100 shadow-xl hover:scale-105 duration-200 dark:bg-slate-900 dark:text-white dark:border cursor-pointer">
           <figure>
-            <img src={item.image} alt="Shoes" />
+            <img
+              src={item.image}
+              alt="Book"
+               className="h-[300px] w-full object-contain rounded-t-lg pt-2"
+            />
           </figure>
           <div className="card-body">
             <h2 className="card-title">

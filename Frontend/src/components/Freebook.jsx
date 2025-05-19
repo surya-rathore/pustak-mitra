@@ -12,10 +12,10 @@ function Freebook() {
   useEffect(() => {
     const getBook = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/book");
+        const res = await axios.get("http://localhost:4001/book/getBook");
 
-        const data = res.data.filter((data) => data.category === "Free");
-        console.log(data);
+        const data = res.data.filter((data) => data.category === "free");
+        console.log("freebook page",data);
         setBook(data);
       } catch (error) {
         console.log(error);
@@ -64,9 +64,8 @@ function Freebook() {
         <div>
           <h1 className="font-semibold text-xl pb-2">Free Offered Courses</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Accusantium veritatis alias pariatur ad dolor repudiandae eligendi
-            corporis nulla non suscipit, iure neque earum?
+           🎁 Limited-Time Offer: Free Books for All!
+           Start your reading journey with our special selection of books — completely free. No sign-up required!
           </p>
         </div>
 

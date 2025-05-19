@@ -1,0 +1,82 @@
+[
+  {
+    "id":1,
+    "name": "Atomic Habits",
+    "price": 399,
+    "category": "Self-help",
+    "title": "An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+    "image": "https://m.media-amazon.com/images/I/91bYsX41DVL.jpg"
+  },
+  {
+    "id":2,
+    "name": "The Alchemist",
+    "price": 299,
+    "category": "Fiction",
+    "title": "A Fable About Following Your Dream",
+    "image": "https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg"
+  },
+  { 
+    "id":3,
+    "name": "Think and Grow Rich",
+    "price": 349,
+    "category": "Business",
+    "title": "The Landmark Bestseller Now Revised and Updated for the 21st Century",
+    "image": "https://m.media-amazon.com/images/I/81eLRIxkOLL.jpg"
+  },
+  {
+    "id":4,
+    "name": "Wings of Fire",
+    "price": 199,
+    "category": "Biography",
+    "title": "Autobiography of Dr. A.P.J Abdul Kalam",
+    "image": "https://m.media-amazon.com/images/I/81drfTT9ZfL.jpg"
+  },
+  {
+    "id":5,
+    "name": "Ikigai",
+    "price": 275,
+    "category": "Philosophy",
+    "title": "The Japanese Secret to a Long and Happy Life",
+    "image": "https://m.media-amazon.com/images/I/91wZL8WfC7L.jpg"
+  },
+  {
+    "id":6,
+    "name": "Rich Dad Poor Dad",
+    "price": 320,
+    "category": "Finance",
+    "title": "What the Rich Teach Their Kids About Money",
+    "image": "https://m.media-amazon.com/images/I/81BE7eeKzAL.jpg"
+  },
+  {
+    "id":7,
+    "name": "Deep Work",
+    "price": 369,
+    "category": "Productivity",
+    "title": "Rules for Focused Success in a Distracted World",
+    "image": "https://m.media-amazon.com/images/I/81LhxlBT8PL.jpg"
+  },
+  {
+    "id":8,
+    "name": "The Psychology of Money",
+    "price": 450,
+    "category": "Finance",
+    "title": "Timeless lessons on wealth, greed, and happiness",
+    "image": "https://m.media-amazon.com/images/I/71g2ednj0JL.jpg"
+  },
+  {
+    "id":9,
+    "name": "Harry Potter and the Philosopher's Stone",
+    "price": 599,
+    "category": "Fantasy",
+    "title": "The beginning of the magical journey",
+    "image": "https://m.media-amazon.com/images/I/81YOuOGFCJL.jpg"
+  },
+  {
+    "id":10,
+    "name": "Sapiens",
+    "price": 499,
+    "category": "History",
+    "title": "A Brief History of Humankind",
+    "image": "https://m.media-amazon.com/images/I/713jIoMO3UL.jpg"
+  }
+]
