@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer"
 import { useState } from "react";
 const Contact = () => {
   const [sendData, setSendData]=useState({
@@ -16,9 +17,24 @@ const Contact = () => {
     e.preventDefault()
 
     try{
-       const response = await fetch(``)
-    }catch{
-
+       const response = await fetch(`http://localhost:4001/user/contact`,{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify(sendData)
+       })
+       const data=await response.json()
+       console.log(data)
+       setSendData({
+        name:"",
+        email:"",
+        subject:"",
+        message:""
+       })
+       
+    }catch(error){
+       console.log("error",error)
     }
   }
   return (
@@ -34,7 +50,7 @@ const Contact = () => {
 
           <div className="grid md:grid-cols-2 gap-10">
             {/* Contact Form */}
-            <form className="space-y-6 bg-white dark:bg-slate-900 p-8 rounded-xl shadow-md border dark:border-slate-700">
+            <form className="space-y-6 bg-white dark:bg-slate-900 p-8 rounded-xl shadow-md border dark:border-slate-700" onSubmit={handleSubmit}>
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-200">
                   Your Name
@@ -44,6 +60,7 @@ const Contact = () => {
                   className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400 dark:bg-slate-800 dark:text-white"
                   placeholder="e.g., Suraj BAli Sahu"
                   name="name"
+                  value={sendData.name}
                   onChange={handleChange}
                   required
                 />
@@ -58,6 +75,8 @@ const Contact = () => {
                   className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400 dark:bg-slate-800 dark:text-white"
                   placeholder="Your email"
                   name="email"
+                  value={sendData.email}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -71,6 +90,8 @@ const Contact = () => {
                   className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400 dark:bg-slate-800 dark:text-white"
                   placeholder="What would you like to talk about?"
                   name="subject"
+                  value={sendData.subject}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -84,6 +105,8 @@ const Contact = () => {
                   placeholder="Write your message here..."
                   name="message"
                   required
+                  value={sendData.message}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -127,6 +150,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
+          <Footer/>
       </div>
     </>
   );

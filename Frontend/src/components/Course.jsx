@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Cards from "./Cards";
 import axios from "axios";
 import { Link } from "react-router-dom";
-function Course() {
+function Course({ filterbook }) {
   const [book, setBook] = useState([]);
   useEffect(() => {
     const getBook = async () => {
       try {
         const res = await axios.get("http://localhost:4001/book/getBook");
-        console.log(res.data);
+        // console.log(res.data);
         setBook(res.data);
       } catch (error) {
         console.log(error);
@@ -30,12 +30,17 @@ function Course() {
             titles**, there’s something for every curious mind. Start exploring
             and elevate your reading journey with PustakMitra today!
           </p>
-          
         </div>
         <div className="mt-12 grid grid-cols-1 md:grid-cols-4">
-          {book.map((item) => (
-            <Cards key={item.id} item={item} />
-          ))}
+          {book
+            .filter((item) =>
+              (item.name || "")
+                .toLowerCase()
+                .includes((filterbook || "").toLowerCase())
+            )
+            .map((item) => (
+              <Cards item={item} key={item.id} />
+            ))}
         </div>
         <div>
           <Link to="/">
