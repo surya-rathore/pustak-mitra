@@ -1,0 +1,48 @@
+
+
+
+
+1️⃣ DFD Diagram (Data Flow Diagram)
+This will represent the flow of data between the user, books, and payment system.
+Entities & Processes:
+- User (signs up, logs in, searches books, buys books)
+- Book Database (stores book details: name, title, category, price, file, etc.)
+- Payment Gateway (Razorpay: processes payments)
+- Search System (User searches for books)
+- Signup System (User must sign up before accessing paid courses)
+- Order System (Creates orders and stores transaction details)
+
+2️⃣ ER Diagram (Entity-Relationship Diagram)
+This diagram shows relationships between entities.
+Entities:
+- User (User_ID, Name, Email, Password, Purchased Books)
+- Book (Book_ID, Name, Title, Category, Image, Price, File)
+- Payment (Payment_ID, Razorpay_Order_ID, Razorpay_Signature)
+Relationships:
+- A user can buy multiple books.
+- A book can have different categories.
+- A user makes a payment before accessing paid books.
+
+3️⃣ Class Diagram (Object-Oriented Design)
+This shows the classes used in coding.
+Class User {
+    String name
+    String email
+    String password
+    List<Book> purchasedBooks
+}
+
+Class Book {
+    String title
+    String category
+    String image
+    float price
+    File file
+}
+
+Class Payment {
+    String razorpayPaymentId
+    String razorpayOrderId
+    String razorpaySignature
+}
+
