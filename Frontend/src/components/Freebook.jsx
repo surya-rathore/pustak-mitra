@@ -12,7 +12,7 @@ function Freebook({ filterbook }) {
   useEffect(() => {
     const getBook = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/book/getBook");
+        const res = await axios.get("https://pustak-mitra-backend.onrender.com/book/getBook");
 
         const data = res.data.filter((data) => data.category === "free");
 

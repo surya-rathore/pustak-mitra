@@ -17,7 +17,7 @@ const Contact = () => {
     e.preventDefault()
 
     try{
-       const response = await fetch(`http://localhost:4001/user/contact`,{
+       const response = await fetch(`https://pustak-mitra-backend.onrender.com/user/contact`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json"

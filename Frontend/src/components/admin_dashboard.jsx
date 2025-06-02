@@ -13,7 +13,7 @@ const Admin_dashboard = () => {
   useEffect(() => {
     const countBook = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/book/getBook");
+        const res = await axios.get("https://pustak-mitra-backend.onrender.com/book/getBook");
         const data = res.data;
         console.log("bookcount", data);
         setBookCount(data);
@@ -26,7 +26,7 @@ const Admin_dashboard = () => {
   useEffect(() => {
     const countUser = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/user/userCount");
+        const res = await axios.get("https://pustak-mitra-backend.onrender.com/user/userCount");
         const data = res.data;
         console.log("usercount", data);
         setUserCount(data);
@@ -39,7 +39,7 @@ const Admin_dashboard = () => {
   useEffect(() => {
     const countOrder = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/user/orderCount");
+        const res = await axios.get("https://pustak-mitra-backend.onrender.com/user/orderCount");
         const data = res.data;
         console.log("ordercount", data.length);
         setOrderCount(data);
@@ -52,7 +52,7 @@ const Admin_dashboard = () => {
   useEffect(() => {
     const allOrders = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/user/orders");
+        const res = await axios.get("https://pustak-mitra-backend.onrender.com/user/orders");
         const data = res.data;
         console.log("all orders", data);
         setOrders(data);

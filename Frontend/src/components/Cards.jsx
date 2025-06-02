@@ -11,7 +11,7 @@ function Cards({ item }) {
   useEffect(() => {
   const fetchUserBooks = async () => {
     try {
-      const res = await axios.get(`http://localhost:4001/user/${authUser._id}`);
+      const res = await axios.get(`https://pustak-mitra-backend.onrender.com/user/${authUser._id}`);
       setUserBooks(res.data.books); // assuming it returns books: [...]
     } catch (error) {
       console.error("Error fetching user books", error);
@@ -21,7 +21,7 @@ function Cards({ item }) {
   if (authUser?._id) fetchUserBooks();
 }, [authUser]);
   const openFile = () => {
-    const fullPath = `http://localhost:4001${item.filePath}`;
+    const fullPath = `https://pustak-mitra-backend.onrender.com${item.filePath}`;
     window.open(fullPath, "_blank");
   };
 
@@ -36,7 +36,7 @@ function Cards({ item }) {
 
   const handleBuyNow = async () => {
     try {
-      const response = await fetch(`http://localhost:4001/user/order`, {
+      const response = await fetch(`https://pustak-mitra-backend.onrender.com/user/order`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -61,7 +61,7 @@ function Cards({ item }) {
       order_id: orderdata.data.id,
       handler: async (response) => {
         try {
-          const res = await fetch(`http://localhost:4001/user/verify`, {
+          const res = await fetch(`https://pustak-mitra-backend.onrender.com/user/verify`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -98,7 +98,7 @@ function Cards({ item }) {
         <div className="card w-92 bg-base-100 shadow-xl hover:scale-105 duration-200 dark:bg-slate-900 dark:text-white dark:border">
           <figure onClick={handleImageClick} className="cursor-pointer">
             <img
-              src={`http://localhost:4001${item.image}`}
+              src={`https://pustak-mitra-backend.onrender.com${item.image}`}
               alt="Book"
               className="h-[300px] w-full object-contain rounded-t-lg pt-2"
             />

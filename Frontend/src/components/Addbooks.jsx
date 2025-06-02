@@ -35,7 +35,7 @@ const AddBook = () => {
     form.append("image", formData.image);
     form.append("file", formData.file);
     try {
-      const response = await fetch(`http://localhost:4001/book/upload`, {
+      const response = await fetch(`https://pustak-mitra-backend.onrender.com/book/upload`, {
         method: "POST",
         body: form,
       });
